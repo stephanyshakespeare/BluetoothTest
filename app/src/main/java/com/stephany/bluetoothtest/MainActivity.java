@@ -157,7 +157,6 @@ public class MainActivity extends Activity {
 
     /**
      * Quick way to call the Toast
-     * @param str
      */
     private void msg(String str) {
         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
@@ -165,7 +164,6 @@ public class MainActivity extends Activity {
 
     /**
      * Initialize the List adapter
-     * @param objects
      */
     private void initList(List<BluetoothDevice> objects) {
         final MyAdapter adapter = new MyAdapter(getApplicationContext(), R.layout.list_item, R.id.lstContent, objects);
@@ -182,9 +180,7 @@ public class MainActivity extends Activity {
 
     /**
      * Searches for paired devices. Doesn't do a scan! Only devices which are paired through Settings->Bluetooth
-     * will show up with this. I didn't see any need to re-build the wheel over here
-     * @author ryder
-     *
+     * will show up with this.
      */
     private class SearchDevices extends AsyncTask<Void, Void, List<BluetoothDevice>> {
 
@@ -212,13 +208,6 @@ public class MainActivity extends Activity {
 
     }
 
-    /**
-     * Custom adapter to show the current devices in the list. This is a bit of an overkill for this
-     * project, but I figured it would be good learning
-     * Most of the code is lifted from somewhere but I can't find the link anymore
-     * @author ryder
-     *
-     */
     private class MyAdapter extends ArrayAdapter<BluetoothDevice> {
         private int selectedIndex;
         private Context context;
